@@ -1,0 +1,33 @@
+{
+    "name":        "microkernel-mod-options",
+    "version":     "0.9.0",
+    "description": "Microkernel module for adding command-line option parsing to server application",
+    "keywords": [
+        "microkernel", "module", "options"
+    ],
+    "repository": {
+        "type": "git",
+        "url":  "https://github.com/rse/microkernel-mod-options.git"
+    },
+    "author": {
+        "name":  "Ralf S. Engelschall",
+        "email": "rse@engelschall.com",
+        "url":   "http://engelschall.com"
+    },
+    "license":  "MIT",
+    "homepage": "https://github.com/rse/microkernel-mod-options",
+    "bugs":     "https://github.com/rse/microkernel-mod-options/issues",
+    "dependencies": {
+        "node-ini":             "~1.0.0",
+        "dashdash":             "~1.13.1",
+        "sprintfjs":            "~1.2.2"
+    },
+    "peerDependencies": {
+        "microkernel":          "*",
+        "microkernel-mod-ctx":  "*"
+    },
+    "scripts": {
+        "prepublish": "jshint microkernel-mod-options.js && babel --presets es2015 microkernel-mod-options.js >microkernel-mod-options.js5"
+    },
+    "main": "microkernel-mod-options.js5"
+}
