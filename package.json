@@ -1,6 +1,6 @@
 {
     "name":        "microkernel-mod-options",
-    "version":     "0.9.0",
+    "version":     "0.9.1",
     "description": "Microkernel module for adding command-line option parsing to server application",
     "keywords": [
         "microkernel", "module", "options"
@@ -19,8 +19,8 @@
     "bugs":     "https://github.com/rse/microkernel-mod-options/issues",
     "dependencies": {
         "node-ini":                 "~1.0.0",
-        "dashdash":                 "~1.13.1",
-        "sprintfjs":                "~1.2.2"
+        "dashdash":                 "~1.14.0",
+        "sprintfjs":                "~1.2.3"
     },
     "devDependencies": {
         "babel-cli":                "~6.14.0",
