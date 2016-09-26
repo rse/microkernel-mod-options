@@ -18,16 +18,23 @@
     "homepage": "https://github.com/rse/microkernel-mod-options",
     "bugs":     "https://github.com/rse/microkernel-mod-options/issues",
     "dependencies": {
-        "node-ini":             "~1.0.0",
-        "dashdash":             "~1.13.1",
-        "sprintfjs":            "~1.2.2"
+        "node-ini":                 "~1.0.0",
+        "dashdash":                 "~1.13.1",
+        "sprintfjs":                "~1.2.2"
+    },
+    "devDependencies": {
+        "babel-cli":                "~6.14.0",
+        "babel":                    "~6.5.2",
+        "babel-preset-es2015":      "~6.14.0",
+        "babel-eslint":             "~6.1.2",
+        "eslint":                   "~3.6.0"
     },
     "peerDependencies": {
-        "microkernel":          "*",
-        "microkernel-mod-ctx":  "*"
+        "microkernel":              "*",
+        "microkernel-mod-ctx":      "*"
     },
     "scripts": {
-        "prepublish": "jshint microkernel-mod-options.js && babel --presets es2015 microkernel-mod-options.js >microkernel-mod-options.js5"
+        "prepublish": "eslint --config eslint.json microkernel-mod-options.js && babel --presets es2015 microkernel-mod-options.js >microkernel-mod-options.js5"
     },
     "main": "microkernel-mod-options.js5"
 }

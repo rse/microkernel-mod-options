@@ -119,6 +119,7 @@ export default class Module {
         try {
             opts = parser.parse(argv)
         } catch (e) {
+            /* eslint no-console: 0 */
             console.error(sprintf("%s: ERROR: %s", kernel.rs("ctx:program"), e.message))
             process.exit(1)
         }
