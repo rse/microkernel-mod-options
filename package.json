@@ -18,22 +18,27 @@
     "homepage": "https://github.com/rse/microkernel-mod-options",
     "bugs":     "https://github.com/rse/microkernel-mod-options/issues",
     "dependencies": {
-        "node-ini":                 "~1.0.0",
-        "dashdash":                 "~1.14.1",
-        "sprintfjs":                "~1.2.6"
+        "node-ini":                 "1.0.0",
+        "dashdash":                 "1.14.1",
+        "sprintfjs":                "1.2.9"
     },
     "devDependencies": {
-        "babel-cli":                "~6.26.0",
-        "babel-preset-es2015":      "~6.24.1",
-        "babel-eslint":             "~8.0.3",
-        "eslint":                   "~4.12.1"
+        "babel-cli":                "6.26.0",
+        "babel-preset-es2015":      "6.24.1",
+        "babel-eslint":             "8.2.3",
+        "eslint":                   "4.19.1",
+        "eslint-config-standard":   "11.0.0",
+        "eslint-plugin-standard":   "3.1.0",
+        "eslint-plugin-promise":    "3.7.0",
+        "eslint-plugin-import":     "2.11.0",
+        "eslint-plugin-node":       "6.0.1"
     },
     "peerDependencies": {
         "microkernel":              "*",
         "microkernel-mod-ctx":      "*"
     },
     "scripts": {
-        "prepublish": "eslint --config eslint.json microkernel-mod-options.js && babel --presets es2015 microkernel-mod-options.js >microkernel-mod-options.js5"
+        "prepublishOnly": "eslint --config eslint.yaml microkernel-mod-options.js"
     },
-    "main": "microkernel-mod-options.js5"
+    "main": "microkernel-mod-options.js"
 }
