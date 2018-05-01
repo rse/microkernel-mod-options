@@ -100,11 +100,11 @@ class Module {
         /*  configure known standard options  */
         let options = [
             { names: [ "version", "v" ], type: "bool", "default": false,
-              help: "Print application version and exit." },
+                help: "Print application version and exit." },
             { names: [ "help", "h" ], type: "bool", "default": false,
-              help: "Print this usage help and exit." },
+                help: "Print this usage help and exit." },
             { name: "options", type: "string", "default": `${inifile}:default`,
-              help: "Read options from file (INI format).", helpArg: "[FILE:]SECTION" }
+                help: "Read options from file (INI format).", helpArg: "[FILE:]SECTION" }
         ]
 
         /*  allow other modules to modify options (usually by adding additional ones)  */
@@ -118,7 +118,8 @@ class Module {
         let opts
         try {
             opts = parser.parse(argv)
-        } catch (e) {
+        }
+        catch (e) {
             /* eslint no-console: 0 */
             console.error(sprintf("%s: ERROR: %s", kernel.rs("ctx:program"), e.message))
             process.exit(1)
@@ -139,9 +140,10 @@ class Module {
             process.stdout.write(`${Package.description}\n`)
             process.stdout.write(`Copyright (c) ${Package.author.name} <${Package.author.url}>\n`)
             if (Package.license === "COM")
-                process.stdout.write(`Distributed under commercial license\n`)
+                process.stdout.write("Distributed under commercial license\n")
             else
-                process.stdout.write(`Distributed under ${Package.license} license <http://spdx.org/licenses/${Package.license}.html>\n`)
+                process.stdout.write(`Distributed under ${Package.license} license " +
+                    "<http://spdx.org/licenses/${Package.license}.html>\n`)
             process.exit(0)
         }
 
