@@ -23,15 +23,15 @@
 */
 
 /*  internal requirements  */
-import path     from "path"
+const path     = require("path")
 
 /*  external requirements  */
-import ini      from "node-ini"
-import dashdash from "dashdash"
-import sprintf  from "sprintfjs"
+const ini      = require("node-ini")
+const dashdash = require("dashdash")
+const sprintf  = require("sprintfjs")
 
 /*  the Microkernel module  */
-export default class Module {
+class Module {
     constructor (options) {
         this.options = Object.assign({
             inifile: ""
@@ -149,4 +149,7 @@ export default class Module {
         kernel.rs("options:options", opts)
     }
 }
+
+/*  export the Microkernel module  */
+module.exports = Module
 
