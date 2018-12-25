@@ -1,6 +1,6 @@
 {
     "name":        "microkernel-mod-options",
-    "version":     "0.9.8",
+    "version":     "0.9.9",
     "description": "Microkernel module for adding command-line option parsing to server application",
     "keywords": [
         "microkernel", "module", "options"
