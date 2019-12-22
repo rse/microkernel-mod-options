@@ -48,15 +48,15 @@ class Module {
     configure (kernel) {
         /*  determine virtual command-line arguments (step 1/3)  */
         let k = 0
-        let argv = []
+        const argv = []
         argv.push(process.argv[k++])
         argv.push(process.argv[k++])
 
         /*  determine virtual command-line arguments (step 2/3)  */
         let inifile = kernel.hook("options:inifile", "pass", this.options.inifile)
-        let sections = [ "default" ]
+        const sections = [ "default" ]
         if (k < process.argv.length) {
-            let m = process.argv[k].match(/^--options=(?:([^:]+):)?(.+)$/)
+            const m = process.argv[k].match(/^--options=(?:([^:]+):)?(.+)$/)
             if (m !== null) {
                 if (m[1])
                     inifile = m[1]
@@ -65,11 +65,11 @@ class Module {
             }
         }
         if (inifile !== "") {
-            let config = ini.parseSync(inifile)
+            const config = ini.parseSync(inifile)
             for (let j = 0; j < sections.length; j++) {
                 if (typeof config[sections[j]] !== "undefined") {
-                    for (let name in config[sections[j]]) {
-                        if (config[sections[j]].hasOwnProperty(name)) {
+                    for (const name in config[sections[j]]) {
+                        if (Object.prototype.hasOwnProperty.call(config[sections[j]], name)) {
                             if (typeof config[sections[j]][name] === "string") {
                                 if (   config[sections[j]][name] === "true"
                                     || config[sections[j]][name] === "false") {
@@ -98,7 +98,7 @@ class Module {
             argv.push(process.argv[k++])
 
         /*  configure known standard options  */
-        let options = [
+        const options = [
             { names: [ "version", "v" ], type: "bool", "default": false,
                 help: "Print application version and exit." },
             { names: [ "help", "h" ], type: "bool", "default": false,
@@ -111,7 +111,7 @@ class Module {
         kernel.hook("options:options", "none", options)
 
         /*  parse options  */
-        let parser = dashdash.createParser({
+        const parser = dashdash.createParser({
             options: options,
             interspersed: false
         })
@@ -127,7 +127,7 @@ class Module {
 
         /*  directly support --help and --version options  */
         if (opts.help) {
-            let help = parser.help().trimRight()
+            const help = parser.help().trimRight()
             process.stdout.write(sprintf(
                 "%s: USAGE: %s [options] [arguments]\noptions:\n%s",
                 kernel.rs("ctx:program"), kernel.rs("ctx:program"), help
@@ -135,7 +135,7 @@ class Module {
             process.exit(0)
         }
         else if (opts.version) {
-            let Package = require(path.join(kernel.rs("ctx:basedir"), "package.json"))
+            const Package = require(path.join(kernel.rs("ctx:basedir"), "package.json"))
             process.stdout.write(`${Package.name} ${Package.version} <${Package.homepage}>\n`)
             process.stdout.write(`${Package.description}\n`)
             process.stdout.write(`Copyright (c) ${Package.author.name} <${Package.author.url}>\n`)
